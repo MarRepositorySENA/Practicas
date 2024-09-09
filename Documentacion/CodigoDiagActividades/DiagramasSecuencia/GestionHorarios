@@ -1,0 +1,18 @@
+@startuml
+start
+:Iniciar sesión como coordinador;
+:Seleccionar competencia a programar;
+:Seleccionar instructor disponible;
+:Seleccionar ambiente disponible;
+:Verificar disponibilidad;
+if (Ambiente e instructor disponibles?) then (sí)
+  :Asignar horario a la clase;
+  :Guardar datos en la base de datos;
+  :Notificar a instructores y estudiantes;
+  :Mostrar confirmación de programación;
+else (no)
+  :Mostrar error de disponibilidad;
+endif
+:Finalizar;
+stop
+@enduml

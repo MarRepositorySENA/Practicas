@@ -1,0 +1,64 @@
+Security
+
+-- Creación de tablas
+CREATE TABLE module (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    description VARCHAR(255),
+    code VARCHAR(30) NOT NULL UNIQUE
+);
+
+CREATE TABLE person (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    second_name VARCHAR(50),
+    first_surname VARCHAR(50) NOT NULL,
+    second_surname VARCHAR(50),
+    type_document VARCHAR(20) NOT NULL,
+    document VARCHAR(20) NOT NULL UNIQUE,
+    email VARCHAR(100) UNIQUE,
+    gender VARCHAR(10),
+    address VARCHAR(255),
+    phone VARCHAR(15),
+    birthdate DATE
+);
+
+CREATE TABLE role (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL UNIQUE,
+    description VARCHAR(255),
+    code VARCHAR(30) NOT NULL UNIQUE
+);
+
+CREATE TABLE view (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    description VARCHAR(255),
+    route VARCHAR(255)
+);
+
+CREATE TABLE roles_views (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    code VARCHAR(20) NOT NULL UNIQUE,
+    role_id INT NOT NULL,
+    view_id INT NOT NULL,
+    FOREIGN KEY (role_id) REFERENCES role(id),
+    FOREIGN KEY (view_id) REFERENCES view(id)
+);
+
+CREATE TABLE user (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    person_id INT NOT NULL,
+    FOREIGN KEY (person_id) REFERENCES person(id)
+);
+
+CREATE TABLE users_roles (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    code VARCHAR(20) NOT NULL UNIQUE,
+    user_id INT NOT NULL,
+    role_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (role_id) REFERENCES role(id)
+);

@@ -1,0 +1,23 @@
+@startuml
+
+actor Administrador as Admin
+actor Coordinador as Coordinador
+actor Personal_Administrativo as Personal_Administrativo
+
+
+
+rectangle "Gestión de Usuarios" {
+    Admin -- (Autorizar Creación de Cuentas)
+    Coordinador -- (Administrar Usuarios)
+    Personal_Administrativo -- (Administrar Usuarios)
+    (Autorizar Creación de Cuentas) --> (Crear Usuario) : <<include>>
+    (Autorizar Creación de Cuentas) --> (Asignar Vistas y Permisos) : <<extend>>
+    (Administrar Usuarios) --> (Editar Usuario) : <<include>>
+    (Administrar Usuarios) --> (Eliminar Usuario) : <<include>>
+
+    (Crear Usuario) --> (Asignar Rol)
+    (Editar Usuario) --> (Modificar Datos)
+    (Eliminar Usuario) --> (Confirmar Eliminación)
+}
+
+@enduml

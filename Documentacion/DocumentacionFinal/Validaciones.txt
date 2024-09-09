@@ -1,0 +1,41 @@
+SECURITY
+
+Person: 
+
+	
+Formato de Email valido
+Formato y Longitud de Documento
+Verificación de Fecha de Nacimiento (No Futuro, no muy antigua)
+Rango de Fecha de Nacimiento (Edad Lógica)
+Valores Permitidos en los Enum para TypeDocument y Gender
+Verificación de Unicidad de Email y Documento
+formato valido para telefono segun el pais
+Verificación de Consistencia de Datos (Por Ejemplo, Relación entre typeDocument y document)
+
+ROLE:
+
+Unicidad: name, code
+Longitud: name ≤ 50 caracteres, code ≤ 30 caracteres
+Formato: Verificar caracteres válidos
+Campos Opcionales: description (si se proporciona, ≤ 255 caracteres)
+Consistencia de Datos: name y code no deben repetirse
+Reglas de Negocio: Aplicar formato específico
+Validación en Creación y Actualización: Validar en ambos casos
+Integridad Referencial: Asegurar relaciones consistentes
+
+if (isNameDuplicate(role.getName())) {
+            throw new ValidationException("El nombre del rol ya está en uso.");
+        }
+
+
+USER: 
+ Formato y Longitud de Password
+Unicidad de Username
+Verificación de Contraseña (Política de Seguridad)
+Consistencia de Relación con Person (personId)
+Verificación de Existencia de Person Asociada
+Validación de Roles o Permisos Asociados (si aplica)
+Verificación de Estado Activo/Inactivo del Usuario (si aplica)
+Políticas de Expiración de Contraseña (si aplica)
+
+		

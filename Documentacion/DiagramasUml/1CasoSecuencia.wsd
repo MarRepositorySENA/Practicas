@@ -1,0 +1,44 @@
+
+@startuml
+actor Administrador as Admin
+actor Coordinador as Coordinador
+actor Personal_Administrativo as Personal_Administrativo
+
+note left of Admin: Autorizar la creación de cuentas
+note left of Coordinador: Administrar usuarios
+note left of Personal_Administrativo: Administrar usuarios
+
+Admin -> Sistema: Autorizar Creación de Cuentas
+Sistema -> Admin: Mostrar Formulario de Creación
+Admin -> Sistema: Completar Formulario y Enviar
+Sistema -> BaseDeDatos: Crear Usuario
+BaseDeDatos -> Sistema: Confirmación de Creación
+Sistema -> Admin: Usuario Creado
+
+Coordinador -> Sistema: Administrar Usuarios
+Sistema -> Coordinador: Mostrar Opciones de Administración
+Coordinador -> Sistema: Seleccionar Crear Usuario
+Sistema -> Coordinador: Mostrar Formulario de Creación
+Coordinador -> Sistema: Completar Formulario y Enviar
+Sistema -> BaseDeDatos: Crear Usuario
+BaseDeDatos -> Sistema: Confirmación de Creación
+Sistema -> Coordinador: Usuario Creado
+
+Personal_Administrativo -> Sistema: Administrar Usuarios
+Sistema -> Personal_Administrativo: Mostrar Opciones de Administración
+Personal_Administrativo -> Sistema: Seleccionar Editar Usuario
+Sistema -> Personal_Administrativo: Mostrar Lista de Usuarios
+Personal_Administrativo -> Sistema: Seleccionar Usuario y Modificar Datos
+Sistema -> BaseDeDatos: Actualizar Datos de Usuario
+BaseDeDatos -> Sistema: Confirmación de Actualización
+Sistema -> Personal_Administrativo: Usuario Editado
+
+Personal_Administrativo -> Sistema: Administrar Usuarios
+Sistema -> Personal_Administrativo: Mostrar Opciones de Administración
+Personal_Administrativo -> Sistema: Seleccionar Eliminar Usuario
+Sistema -> Personal_Administrativo: Mostrar Lista de Usuarios
+Personal_Administrativo -> Sistema: Seleccionar Usuario y Confirmar Eliminación
+Sistema -> BaseDeDatos: Eliminar Usuario
+BaseDeDatos -> Sistema: Confirmación de Eliminación
+Sistema -> Personal_Administrativo: Usuario Eliminado
+@enduml

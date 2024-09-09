@@ -1,0 +1,21 @@
+@startuml
+
+actor Coordinador as Coordinador
+actor Personal_Administrativo as Personal_Administrativo
+actor Instructor as Instructor
+
+
+rectangle "Generación de Reportes" {
+    Coordinador -- (Generar Reportes)
+    Instructor -- (Generar Reportes)
+    Personal_Administrativo -- (Generar Reportes)
+    (Generar Reportes) --> (Crear Reporte) : <<include>>
+    (Generar Reportes) --> (Editar Reporte) : <<include>>
+    (Generar Reportes) --> (Eliminar Reporte) : <<include>>
+
+    (Crear Reporte) --> (Seleccionar Ficha)
+    (Editar Reporte) --> (Modificar Contenido)
+    (Eliminar Reporte) --> (Confirmar Eliminación)
+}
+
+@enduml

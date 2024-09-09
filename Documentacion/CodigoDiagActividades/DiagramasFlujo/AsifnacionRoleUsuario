@@ -1,0 +1,22 @@
+@startuml
+start
+:Iniciar sesión;
+:Acceder a la gestión de usuarios;
+:Seleccionar un usuario;
+diamond "Usuario existe?"
+if (sí) then
+  :Seleccionar rol a asignar;
+  diamond "Rol válido?";
+  if (sí) then
+    :Asignar rol al usuario;
+    :Guardar cambios en la base de datos;
+    :Mostrar confirmación;
+  else
+    :Mostrar error "Rol no válido";
+  endif
+else
+  :Mostrar error "Usuario no encontrado";
+endif
+:Finalizar;
+stop
+@enduml

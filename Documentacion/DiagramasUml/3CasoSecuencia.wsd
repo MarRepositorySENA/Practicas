@@ -1,0 +1,56 @@
+@startuml
+actor Coordinador as Coordinador
+actor Personal_Administrativo as Personal_Administrativo
+actor Instructor as Instructor
+actor Gestor_de_Linea as Gestor_de_Linea
+
+note left of Coordinador: Generar reportes
+note left of Personal_Administrativo: Generar reportes
+note left of Instructor: Generar reportes
+note left of Gestor_de_Linea: Generar reportes
+
+Coordinador -> Sistema: Generar Reporte
+Sistema -> Coordinador: Mostrar Formulario de Reporte
+Coordinador -> Sistema: Seleccionar Ficha
+Sistema -> BaseDeDatos: Obtener Fichas
+BaseDeDatos -> Sistema: Lista de Fichas
+Sistema -> Coordinador: Mostrar Lista de Fichas
+Coordinador -> Sistema: Completar Formulario y Enviar
+Sistema -> BaseDeDatos: Crear Reporte
+BaseDeDatos -> Sistema: Confirmación de Creación
+Sistema -> Coordinador: Reporte Creado
+
+Personal_Administrativo -> Sistema: Generar Reporte
+Sistema -> Personal_Administrativo: Mostrar Formulario de Reporte
+Personal_Administrativo -> Sistema: Seleccionar Ficha
+Sistema -> BaseDeDatos: Obtener Fichas
+BaseDeDatos -> Sistema: Lista de Fichas
+Sistema -> Personal_Administrativo: Mostrar Lista de Fichas
+Personal_Administrativo -> Sistema: Completar Formulario y Enviar
+Sistema -> BaseDeDatos: Crear Reporte
+BaseDeDatos -> Sistema: Confirmación de Creación
+Sistema -> Personal_Administrativo: Reporte Creado
+
+Instructor -> Sistema: Generar Reporte
+Sistema -> Instructor: Mostrar Formulario de Reporte
+Instructor -> Sistema: Seleccionar Ficha
+Sistema -> BaseDeDatos: Obtener Fichas
+BaseDeDatos -> Sistema: Lista de Fichas
+Sistema -> Instructor: Mostrar Lista de Fichas
+Instructor -> Sistema: Completar Formulario y Enviar
+Sistema -> BaseDeDatos: Crear Reporte
+BaseDeDatos -> Sistema: Confirmación de Creación
+Sistema -> Instructor: Reporte Creado
+
+Gestor_de_Linea -> Sistema: Generar Reporte
+Sistema -> Gestor_de_Linea: Mostrar Formulario de Reporte
+Gestor_de_Linea -> Sistema: Seleccionar Ficha
+Sistema -> BaseDeDatos: Obtener Fichas
+BaseDeDatos -> Sistema: Lista de Fichas
+Sistema -> Gestor_de_Linea: Mostrar Lista de Fichas
+Gestor_de_Linea -> Sistema: Completar Formulario y Enviar
+Sistema -> BaseDeDatos: Crear Reporte
+BaseDeDatos -> Sistema: Confirmación de Creación
+Sistema -> Gestor_de_Linea: Reporte Creado
+
+@enduml

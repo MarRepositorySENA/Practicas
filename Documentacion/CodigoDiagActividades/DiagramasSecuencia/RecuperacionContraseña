@@ -1,0 +1,15 @@
+@startuml
+start
+:Acceder a la opción "Olvidé mi contraseña";
+:Introducir correo electrónico registrado;
+:Verificar si el correo existe en la base de datos;
+if (Correo existe?) then (sí)
+  :Generar enlace de recuperación;
+  :Enviar enlace al correo;
+  :Mostrar mensaje "Enlace enviado";
+else (no)
+  :Mostrar error "Correo no registrado";
+endif
+:Finalizar proceso;
+stop
+@enduml

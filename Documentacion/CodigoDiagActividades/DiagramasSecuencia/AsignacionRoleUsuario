@@ -1,0 +1,27 @@
+@startuml
+start
+:Iniciar sesión en el sistema;
+:Verificar credenciales de administrador;
+if (Credenciales válidas?) then (sí)
+  :Acceder a la gestión de usuarios;
+  :Seleccionar un usuario;
+  :Verificar si el usuario existe;
+  if (Usuario existe?) then (sí)
+    :Seleccionar el rol a asignar;
+    :Verificar si el rol es válido;
+    if (Rol válido?) then (sí)
+      :Asignar rol al usuario;
+      :Guardar cambios en la base de datos;
+      :Mostrar confirmación de asignación;
+    else (no)
+      :Mostrar error de rol no válido;
+    endif
+  else (no)
+    :Mostrar error de usuario no encontrado;
+  endif
+else (no)
+  :Mostrar error de autenticación;
+endif
+:Finalizar proceso;
+stop
+@enduml

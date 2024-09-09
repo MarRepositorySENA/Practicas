@@ -1,0 +1,79 @@
+@startuml
+actor Coordinador as Coordinador
+actor Personal_Administrativo as Personal_Administrativo
+actor Gestor_de_Linea as Gestor_de_Linea
+
+note left of Coordinador: Crear nuevo horario
+note left of Personal_Administrativo: Crear nuevo horario
+note left of Gestor_de_Linea: Crear nuevo horario
+
+Coordinador -> Sistema: Crear Horario
+Sistema -> Coordinador: Mostrar Formulario de Creación
+Coordinador -> Sistema: Seleccionar Ambiente
+Sistema -> BaseDeDatos: Obtener Ambientes
+BaseDeDatos -> Sistema: Lista de Ambientes
+Sistema -> Coordinador: Mostrar Lista de Ambientes
+Coordinador -> Sistema: Seleccionar programa de formacion
+Sistema -> BaseDeDatos: Obtener programa de formacion
+BaseDeDatos -> Sistema: Lista de programa de formacion
+Sistema -> Coordinador: Mostrar Lista de programa de formacion
+Coordinador -> Sistema: Seleccionar Jornada
+Sistema -> BaseDeDatos: Obtener Jornadas
+BaseDeDatos -> Sistema: Lista de Jornadas
+Sistema -> Coordinador: Mostrar Lista de Jornadas
+Coordinador -> Sistema: Seleccionar Día de la Semana
+Sistema -> BaseDeDatos: Obtener Días de la Semana
+BaseDeDatos -> Sistema: Lista de Días de la Semana
+Sistema -> Coordinador: Mostrar Lista de Días de la Semana
+Coordinador -> Sistema: Confirmar y Crear Horario
+Sistema -> BaseDeDatos: Crear Horario
+BaseDeDatos -> Sistema: Confirmación de Creación
+Sistema -> Coordinador: Horario Creado
+
+Personal_Administrativo -> Sistema: Crear Horario
+Sistema -> Personal_Administrativo: Mostrar Formulario de Creación
+Personal_Administrativo -> Sistema: Seleccionar Ambiente
+Sistema -> BaseDeDatos: Obtener Ambientes
+BaseDeDatos -> Sistema: Lista de Ambientes
+Sistema -> Personal_Administrativo: Mostrar Lista de Ambientes
+Personal_Administrativo -> Sistema: Seleccionar Materia
+Sistema -> BaseDeDatos: Obtener Materias
+BaseDeDatos -> Sistema: Lista de Materias
+Sistema -> Personal_Administrativo: Mostrar Lista de Materias
+Personal_Administrativo -> Sistema: Seleccionar Jornada
+Sistema -> BaseDeDatos: Obtener Jornadas
+BaseDeDatos -> Sistema: Lista de Jornadas
+Sistema -> Personal_Administrativo: Mostrar Lista de Jornadas
+Personal_Administrativo -> Sistema: Seleccionar Día de la Semana
+Sistema -> BaseDeDatos: Obtener Días de la Semana
+BaseDeDatos -> Sistema: Lista de Días de la Semana
+Sistema -> Personal_Administrativo: Mostrar Lista de Días de la Semana
+Personal_Administrativo -> Sistema: Confirmar y Crear Horario
+Sistema -> BaseDeDatos: Crear Horario
+BaseDeDatos -> Sistema: Confirmación de Creación
+Sistema -> Personal_Administrativo: Horario Creado
+
+Gestor_de_Linea -> Sistema: Crear Horario
+Sistema -> Gestor_de_Linea: Mostrar Formulario de Creación
+Gestor_de_Linea -> Sistema: Seleccionar Ambiente
+Sistema -> BaseDeDatos: Obtener Ambientes
+BaseDeDatos -> Sistema: Lista de Ambientes
+Sistema -> Gestor_de_Linea: Mostrar Lista de Ambientes
+Gestor_de_Linea -> Sistema: Seleccionar Materia
+Sistema -> BaseDeDatos: Obtener Materias
+BaseDeDatos -> Sistema: Lista de Materias
+Sistema -> Gestor_de_Linea: Mostrar Lista de Materias
+Gestor_de_Linea -> Sistema: Seleccionar Jornada
+Sistema -> BaseDeDatos: Obtener Jornadas
+BaseDeDatos -> Sistema: Lista de Jornadas
+Sistema -> Gestor_de_Linea: Mostrar Lista de Jornadas
+Gestor_de_Linea -> Sistema: Seleccionar Día de la Semana
+Sistema -> BaseDeDatos: Obtener Días de la Semana
+BaseDeDatos -> Sistema: Lista de Días de la Semana
+Sistema -> Gestor_de_Linea: Mostrar Lista de Días de la Semana
+Gestor_de_Linea -> Sistema: Confirmar y Crear Horario
+Sistema -> BaseDeDatos: Crear Horario
+BaseDeDatos -> Sistema: Confirmación de Creación
+Sistema -> Gestor_de_Linea: Horario Creado
+
+@enduml

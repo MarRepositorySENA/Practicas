@@ -1,0 +1,35 @@
+-- Inserción de registros Security
+INSERT INTO module (name, description, code) VALUES
+('Gestión de Horarios', 'Módulo para gestionar los horarios de clases', 'MOD001'),
+('Gestión de Usuarios', 'Módulo para gestionar los usuarios del sistema', 'MOD002'),
+('Gestión de Ambientes', 'Módulo para gestionar los salones de clase', 'MOD003');
+
+INSERT INTO person (first_name, second_name, first_surname, second_surname, type_document, document, email, gender, address, phone, birthdate) VALUES
+('Juan', 'Carlos', 'Pérez', 'Gómez', 'CC', '123456789', 'juan.perez@example.com', 'M', 'Calle 123', '3111234567', '1980-01-15'),
+('Ana', 'María', 'Rodríguez', 'López', 'CC', '987654321', 'ana.rodriguez@example.com', 'F', 'Carrera 45', '3109876543', '1990-06-25'),
+('Luis', 'Fernando', 'Martínez', 'García', 'CC', '456123789', 'luis.martinez@example.com', 'M', 'Avenida 78', '3127896541', '1985-03-12');
+
+INSERT INTO role (name, description, code) VALUES
+('Administrador', 'Rol con acceso completo al sistema', 'ROL001'),
+('Instructor', 'Rol para gestionar horarios y estudiantes', 'ROL002'),
+('Gestor Delinea', 'Rol para gestionar el delineado de horarios', 'ROL003');
+
+INSERT INTO view (name, description, route) VALUES
+('Vista Horarios', 'Vista para la gestión de horarios académicos', '/horarios'),
+('Vista Usuarios', 'Vista para la gestión de usuarios del sistema', '/usuarios'),
+('Vista Ambientes', 'Vista para la gestión de ambientes', '/ambientes');
+
+INSERT INTO roles_views (code, role_id, view_id) VALUES
+('RV001', 1, 1),
+('RV002', 2, 2),
+('RV003', 3, 3);
+
+INSERT INTO user (username, password, person_id) VALUES
+('jperez', 'password123', 1),
+('arodriguez', 'password456', 2),
+('lmartinez', 'password789', 3);
+
+INSERT INTO users_roles (code, user_id, role_id) VALUES
+('UR001', 1, 1),
+('UR002', 2, 2),
+('UR003', 3, 3);

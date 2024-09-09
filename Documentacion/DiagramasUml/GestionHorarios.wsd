@@ -1,0 +1,36 @@
+@startuml
+
+left to right direction
+
+actor Gestor_de_Linea as Gestor
+actor Coordinador as Coordinador
+actor Instructor as Instructor
+actor Aprendiz as Aprendiz
+actor Personal_Administrativo as Personal
+
+rectangle "Gestión de Horarios" {
+    Coordinador -- (Administrar Horarios)
+    Personal -- (Modificar Horarios)
+    Personal -- (Apoyar Coordinador)
+    (Administrar Horarios) --> (Asignar Horarios) : <<include>>
+    (Administrar Horarios) --> (Eliminar Horarios) : <<include>>
+    (Administrar Horarios) --> (Visualizar Horarios) : <<include>>
+
+    (Asignar Horarios) --> (Seleccionar Instructor) : <<extend>>
+    (Asignar Horarios) --> (Seleccionar Aprendiz) : <<extend>>
+    (Modificar Horarios) --> (Editar Detalles) : <<extend>>
+    (Eliminar Horarios) --> (Seleccionar Horario) : <<extend>>
+
+    (Seleccionar Instructor) --> (Asignar Disponibilidad)
+    (Seleccionar Aprendiz) --> (Visualizar Disponibilidad)
+    (Editar Detalles) --> (Guardar Cambios)
+    (Seleccionar Horario) --> (Confirmar Eliminación)
+}
+
+note left of Gestor: Gestor de Línea que crea y asigna horarios.
+note left of Coordinador: Coordinador que autoriza y gestiona horarios.
+note left of Instructor: Instructor que puede solicitar cambios en el horario.
+note left of Aprendiz: Aprendiz que puede visualizar el horario.
+note left of Personal: Personal Administrativo que apoya en la gestión y modificación de horarios.
+
+@enduml

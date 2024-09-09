@@ -1,0 +1,13 @@
+@startuml
+start
+:Iniciar sesión en el sistema;
+:Seleccionar tipo de reporte a generar;
+:(fechas, consolidado Mensual);
+:Solicitar generación del reporte;
+:Procesar datos en la base de datos;
+:Generar informe;
+:Mostrar el informe en pantalla;
+:Dar opción de exportar (PDF, Excel);
+:Finalizar;
+stop
+@enduml

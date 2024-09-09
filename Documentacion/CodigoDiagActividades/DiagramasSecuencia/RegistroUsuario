@@ -1,0 +1,19 @@
+@startuml
+start
+:Acceder al formulario de registro;
+:Introducir datos del usuario;
+if (Datos completos?) then (sí)
+  :Verificar si el usuario ya existe;
+  if (Usuario ya registrado?) then (sí)
+    :Mostrar error "Usuario ya registrado";
+  else (no)
+    :Guardar datos del usuario;
+    :Enviar correo de confirmación;
+    :Mostrar mensaje de "Registro completado";
+  endif
+else (no)
+  :Mostrar error "Faltan datos";
+endif
+:Finalizar;
+stop
+@enduml

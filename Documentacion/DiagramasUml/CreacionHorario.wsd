@@ -1,0 +1,21 @@
+@startuml
+
+actor Coordinador as Coordinador
+actor Personal_Administrativo as Personal_Administrativo
+actor Gestor_de_Linea as Gestor_de_Linea
+
+rectangle "Creación de Horarios" {
+    Coordinador -- (Crear Horario)
+    Personal_Administrativo -- (Crear Horario)
+    Gestor_de_Linea -- (Crear Horario)
+    (Crear Horario) --> (Seleccionar Ambiente) : <<include>>
+    (Crear Horario) --> (Seleccionar Materia) : <<include>>
+    (Crear Horario) --> (Seleccionar Jornada) : <<include>>
+    (Crear Horario) --> (Seleccionar Día de la Semana) : <<include>>
+    (Seleccionar Ambiente) --> (Asignar Horario)
+    (Seleccionar Materia) --> (Asignar Horario)
+    (Seleccionar Jornada) --> (Asignar Horario)
+    (Seleccionar Día de la Semana) --> (Asignar Horario)
+}
+
+@enduml
